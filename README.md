@@ -6,3 +6,6 @@
 3. QQ邮箱需要开启POP3/SMTP和IMAP/SMTP服务![](image/qq邮箱配置.png)
 4. 在src目录下的config.properties中配置QQ邮箱的账号和授权码(授权码需要在QQ邮箱中获得)，[获得授权码](https://jingyan.baidu.com/article/fedf0737af2b4035ac8977ea.html)
 5. input目录下有学生基本表模板:学生信息表.xlsx，列的顺序必须与模板的顺序一致
+
+##喜欢的同学帮忙点个赞
+![](image/star指南.png)
