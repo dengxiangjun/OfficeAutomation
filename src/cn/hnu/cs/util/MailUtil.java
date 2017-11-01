@@ -11,9 +11,10 @@ public class MailUtil {
 
 	public static void send(String to,String subject,String text) {
 		// 获取JavaMailSender bean
-		JavaMailSender sender = (JavaMailSender) ctx.getBean("mailSender");
+		JavaMailSenderImpl sender = (JavaMailSenderImpl) ctx.getBean("mailSender");
 		SimpleMailMessage mail = new SimpleMailMessage(); // <span															// style="color: #ff0000;">注意SimpleMailMessage只能用来发送text格式的邮件</span>
 		try {
+			mail.setFrom(sender.getUsername());
 			mail.setTo(to);// 接受者
 			mail.setSubject(subject);// 主题
 			mail.setText(text);// 邮件内容

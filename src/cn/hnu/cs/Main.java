@@ -24,9 +24,9 @@ public class Main {
     public static void officeAutomation() {
         Scanner sc = new Scanner(System.in);
         System.out.print("请输入学生信息Excel表的路径：");
-        //String filePathName = sc.nextLine();
+        String filePathName = sc.nextLine();
         System.out.println();
-        String filePathName = "input\\test.xlsx";
+        //String filePathName = "input\\学生信息表.xlsx";
         List<Student> userDtoList = null;
         try {
             userDtoList = ExcelHelper.parseData(filePathName, 0, Student.class, true);
@@ -36,9 +36,9 @@ public class Main {
         }
 
         System.out.print("请输入收集本系内学生材料的文件夹路径：");
-        //String material = sc.nextLine();
+        String material = sc.nextLine();
         System.out.println();
-        String material = "input\\邓湘军";
+        //String material = "input\\邓湘军";
         List<String> hasCommit = getFileList(material);
 
         List<Student> hasNotCommits = checkCommit(userDtoList, hasCommit);
@@ -47,11 +47,15 @@ public class Main {
             for (Student s : hasNotCommits) {
                 System.out.print(s.getName() + " ");
             }
+            System.out.println();
             System.out.println("======================================");
-            System.out.println("是否需要发送邮件通知他们?请输入yes|no,(Y代表是，N代表否)");
+            System.out.println("是否需要发送邮件通知他们?请输入Y|N,(Y代表是，N代表否)");
 
             String shouldSendEmail = sc.nextLine();
-            if (shouldSendEmail.equalsIgnoreCase("yes")) sendEmail(hasNotCommits);
+            if (shouldSendEmail.equalsIgnoreCase("yes")){
+                sendEmail(hasNotCommits);
+                System.out.println("邮件已发送");
+            }
 
         } else System.out.println("本系内所有材料已经交齐。");
     }
