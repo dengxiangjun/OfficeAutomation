@@ -12,5 +12,5 @@
 4. 在src目录下的config.properties中配置QQ邮箱的账号和授权码(授权码需要在QQ邮箱中获得)，[获得授权码](https://jingyan.baidu.com/article/fedf0737af2b4035ac8977ea.html)
 5. input目录下有学生基本表模板:学生信息表.xlsx，列的顺序必须与模板的顺序一致。学生信息表中有所有的学生的基本信息，包括姓名、学号、QQ邮箱
 
-##喜欢的同学帮忙点个赞
+## 喜欢的同学帮忙点个赞
 ![](image/star指南.png)
