@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>OfficeAutomation</groupId>
-    <artifactId>com.hnu.cs</artifactId>
+    <groupId>dengxiangjun</groupId>
+    <artifactId>OfficeAutomation</artifactId>
     <version>0.0.6-SNAPSHOT</version>
 
     <dependencies>
