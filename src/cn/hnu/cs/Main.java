@@ -38,7 +38,7 @@ public class Main {
         System.out.print("请输入收集本系内学生材料的文件夹路径：");
         String material = sc.nextLine();
         System.out.println();
-        //String material = "input\\邓湘军";
+        //String material = "input";
         List<String> hasCommit = getFileList(material);
 
         List<Student> hasNotCommits = checkCommit(userDtoList, hasCommit);
@@ -52,7 +52,7 @@ public class Main {
             System.out.println("是否需要发送邮件通知他们?请输入Y|N,(Y代表是，N代表否)");
 
             String shouldSendEmail = sc.nextLine();
-            if (shouldSendEmail.equalsIgnoreCase("yes")){
+            if (shouldSendEmail.equalsIgnoreCase("y")) {
                 sendEmail(hasNotCommits);
                 System.out.println("邮件已发送");
             }
@@ -62,13 +62,14 @@ public class Main {
 
     /**
      * 发送邮件
+     *
      * @param students 学生列表
      */
-    public static void sendEmail(List<Student> students){
-        for (Student s:students){
+    public static void sendEmail(List<Student> students) {
+        for (Student s : students) {
             String subject = "黎孟温馨提示您提交材料";
             String text = "截止日期是今晚上";
-            MailUtil.send(s.getEmail(),subject,text);
+            MailUtil.send(s.getEmail(), subject, text);
         }
     }
 
@@ -82,16 +83,19 @@ public class Main {
         File dirFile = new File(dirPath);
         File[] files = dirFile.listFiles();
         List<String> list = new ArrayList<String>();
-        for (File f : files) {
-            String filename = f.getName();
-            list.add(filename);
+        if (files != null) {
+            for (File f : files) {
+                String filename = f.getName();
+                list.add(filename);
+            }
         }
         return list;
     }
 
     /**
      * 检查谁还没有提交材料
-     * @param students 学生列表
+     *
+     * @param students  学生列表
      * @param hasCommit 已提交列表
      * @return List<Student>
      */
@@ -99,7 +103,9 @@ public class Main {
         Iterator<Student> it = students.iterator();
         while (it.hasNext()) {
             Student s = it.next();
-            if (hasCommit.contains(s.getName())) it.remove();
+            for (String str : hasCommit) {
+                if (str.contains(s.getName())) it.remove();
+            }
         }
         return students;
     }
